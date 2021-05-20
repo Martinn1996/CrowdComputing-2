@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button, Col, Container, Navbar, Row } from "react-bootstrap";
 
-export default function Frame({children, code, setCode}) {
+export default function Frame({ children, code, setCode }) {
     const [stage, setStage] = useState(1);
     let Stage = null;
     switch (stage) {
@@ -19,13 +19,13 @@ export default function Frame({children, code, setCode}) {
     }
     return <div>
         <Navbar bg="light">
-            <Navbar.Brand href="#home">Queue</Navbar.Brand>
+            <Container>
+                <Navbar.Brand href="#home">Queue</Navbar.Brand>
+            </Container>
         </Navbar>
-        <Container>
-            <Stage setStage={setStage} code={code}>
-                {children}
-            </Stage>
-        </Container>
+        <Stage setStage={setStage} code={code}>
+            {children}
+        </Stage>
     </div>
 }
 
@@ -85,14 +85,14 @@ function Stage2({ children, setStage }) {
     </div>
 }
 
-function Stage3({code}) {
+function Stage3({ code }) {
     return (<div>
         <br />
         <Container>
             <Row>
                 <Col>
                     <h3>Thank you for queueing</h3>
-                    <hr/>
+                    <hr />
                     <p>
                         Please return to toloka now to fill out the questionnaire and enter your identification code.
                     </p>

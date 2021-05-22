@@ -91,6 +91,17 @@ function Stage2({ children, setStage }) {
     </div>
 }
 
+function makeid(length) {
+    var result = [];
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+        result.push(characters.charAt(Math.floor(Math.random() *
+            charactersLength)));
+    }
+    return result.join('');
+}
+
 function Stage3({ code }) {
     return (<div>
         <br />
@@ -102,7 +113,7 @@ function Stage3({ code }) {
                     <p>
                         Please return to toloka now to fill out the questionnaire and enter your identification code.
                     </p>
-                    <p><b>Identification code: {code}</b></p>
+                    <p><b>Identification code: {makeid(5) + code}</b></p>
                 </Col>
             </Row>
         </Container>

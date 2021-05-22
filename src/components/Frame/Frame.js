@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Col, Container, Navbar, Row } from "react-bootstrap";
 
-export default function Frame({ children, code, setCode }) {
+export default function Frame({ children, code }) {
     const [stage, setStage] = useState(1);
     let Stage = null;
     switch (stage) {
@@ -69,8 +69,14 @@ function changeQueue(queueSize, setQueueSize, setStage) {
 }
 
 function Stage2({ children, setStage }) {
-    const [queueSize, setQueueSize] = useState(5)
-    changeQueue(queueSize, setQueueSize, setStage)
+    const [queueSize, setQueueSize] = useState(5);
+    const [renderTask, setRenderTask] = useState(false)
+    useEffect(() => {
+        changeQueue(queueSize, setQueueSize, setStage)
+        setTimeout(() => {
+            setRenderTask(true)
+        }, 5000)
+    }, [])
     return <div>
         <br />
         <Container>
@@ -79,7 +85,7 @@ function Stage2({ children, setStage }) {
                 <Col><hr /></Col>
             </Row>
             <Row>
-                {children}
+                {renderTask && children}
             </Row>
         </Container>
     </div>

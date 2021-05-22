@@ -9,23 +9,28 @@ export default function Task4() {
     if (finished) {
         //setCode(1) //TBD encode answer
         return (
-            <Frame code={code} setCode={setCode}>
+            <Frame code={code}>
                 <Col sm={12}>
                     <p>Thank you for your time!</p>
                 </Col>
             </Frame>)
     }
 
+    const taskSubmitted = () => {
+        setFinished(true);
+        setCode(1)
+    }
+
     return (
         <Frame code={code} setCode={setCode}>
-            <Col sm={12}>
+            <Col sm={6}>
                 <h5>What are your thoughts on the Covid-19 vaccinations?</h5>
                 <Form>
                     <Form.Group>
-                        <Button onClick={() => { setFinished(true) }}>Neutral</Button><span> </span>
-                        <Button onClick={() => { setFinished(true) }}>Happy to get it!</Button><span> </span>
-                        <Button onClick={() => { setFinished(true) }}>I'm not going to get it!</Button><span> </span>
-                        <Button onClick={() => { setFinished(true) }}>Other</Button><span> </span>
+                        <Button onClick={taskSubmitted}>Neutral</Button><span> </span>
+                        <Button onClick={taskSubmitted}>Happy to get it!</Button><span> </span>
+                        <Button onClick={taskSubmitted}>I'm not going to get it!</Button><span> </span>
+                        <Button onClick={taskSubmitted}>Other</Button><span> </span>
                     </Form.Group>
                 </Form>
             </Col>

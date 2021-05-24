@@ -1,0 +1,14 @@
+[
+	{
+		"question": "Could you identify which image below corresponds to a <b>boat</b>?",
+		"options": ["/images/motor.jpg", "/images/boat.jpeg", "/images/car.jpeg", "/images/airplane.jpg"]
+	},
+	{
+		"question": "Could you identify which image below corresponds to a <b>ball</b>?",
+		"options": ["/images/dog.jpeg", "/images/boat.jpeg", "/images/car.jpeg", "/images/ball.jpg"]
+	},
+	{
+		"question": "Could you identify which image below corresponds to a <b>Leopard</b>?",
+		"options": ["/images/dog.jpeg", "/images/cat.jpg", "/images/leopard.jpg", "/images/cheetah.jpg"]
+	}
+]

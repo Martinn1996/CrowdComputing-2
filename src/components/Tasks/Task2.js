@@ -1,10 +1,12 @@
 import Frame from "../Frame/Frame"
 import { useState } from "react";
 import { Image, Col, Button, Form } from "react-bootstrap";
+import tasks from "../../tasks_data/tasks_2.json"
 
 export default function Task2() {
     const [code, setCode] = useState(0);
     const [finished, setFinished] = useState(false);
+    const [selected, setSelected] = useState(0);
 
     if (finished) {
         return (
@@ -15,25 +17,26 @@ export default function Task2() {
             </Frame>)
     }
 
-    const taskSubmitted = () => {
-        setFinished(true);
-        setCode(1)
+    const taskSubmitted = () => {   
+        setSelected(selected + 1);
+        setCode(code+1);
+
+        if (selected >= tasks.length - 1) {
+            setFinished(true);
+        }
     }
 
     return (
         <Frame code={code}>
             <Col sm={12}>
                 <h5>Whilst you're waiting, why not do something productive?</h5>
-                <p>Could you identify what you see in the image below?</p>
+                <p>{tasks[selected].question}</p>
             </Col>
-            <Col sm={4}>
-                <Image src={process.env.PUBLIC_URL + "/images/dog.jpeg"} width="100%" style={{ marginBottom: "25px" }}></Image>
+            <Col sm={12}>
+                <Image src={process.env.PUBLIC_URL + tasks[selected].image} style={{ maxHeight: "300px", marginBottom: "25px" }}></Image>
                 <Form>
                     <Form.Group>
-                        <Button onClick={taskSubmitted}>Ball</Button><span> </span>
-                        <Button onClick={taskSubmitted}>Boat</Button><span> </span>
-                        <Button onClick={taskSubmitted}>Car</Button><span> </span>
-                        <Button onClick={taskSubmitted}>Dog</Button><span> </span>
+                        {tasks[selected].options.map((x) => (<Button onClick={taskSubmitted} style={{marginRight: "10px"}}>{x}</Button>))}
                     </Form.Group>
                 </Form>
             </Col>

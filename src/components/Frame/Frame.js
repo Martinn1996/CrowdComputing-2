@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button, Col, Container, Navbar, Row } from "react-bootstrap";
+import { animated, useSpring } from "react-spring";
 
 export default function Frame({ children, code }) {
     const [stage, setStage] = useState(1);
@@ -17,15 +18,20 @@ export default function Frame({ children, code }) {
         default:
             Stage = Stage1;
     }
-    return <div>
+    return <div className="d-flex flex-column min-vh-100">
         <Navbar bg="light">
             <Container>
-                <Navbar.Brand href="#home">Queue</Navbar.Brand>
+                <Navbar.Brand>Queue</Navbar.Brand>
             </Container>
         </Navbar>
         <Stage setStage={setStage} code={code}>
             {children}
         </Stage>
+        <footer className="page-footer font-small pt-1 mt-auto bg-light">
+            <div className="footer-copyright text-center py-3" >© 2021 Copyright:
+                <span> RedClout Computing </span>
+            </div>
+        </footer>
     </div>
 }
 
@@ -65,18 +71,20 @@ function changeQueue(queueSize, setQueueSize, setStage) {
     setTimeout(() => {
         setQueueSize(queueSize - 1)
         changeQueue(queueSize - 1, setQueueSize, setStage)
-    }, 24000)
+    }, 10000)
 }
 
 function Stage2({ children, setStage }) {
     const [queueSize, setQueueSize] = useState(5);
     const [renderTask, setRenderTask] = useState(false)
+
     useEffect(() => {
         changeQueue(queueSize, setQueueSize, setStage)
         setTimeout(() => {
             setRenderTask(true)
-        }, 5000)
+        }, 3000)
     }, [])
+
     return <div>
         <br />
         <Container>
@@ -85,10 +93,20 @@ function Stage2({ children, setStage }) {
                 <Col><hr /></Col>
             </Row>
             <Row>
-                {renderTask && children}
+                {renderTask && <Animated children={children} />}
             </Row>
         </Container>
     </div>
+}
+
+function Animated({children}) {
+    const springProps = useSpring({
+        to: { opacity: 1, marginTop: 0},
+        from: { opacity: 0, marginTop: 10},
+        config: { duration: (1000) }
+    });
+
+    return (<animated.div style={{ ...springProps}}>{children}</animated.div>);
 }
 
 function makeid(length) {

@@ -1,0 +1,14 @@
+[
+	{
+		"question": "What are your thoughts on the Covid-19 vaccinations?",
+		"options": ["Neutral", "Happy to get it!", "I'm not going to get it!", "Other"]
+	},
+   {
+	   "question": "Do you think that the global warming is an important issue?",
+   	"options": ["Definitely", "Neutral", "No", "Other"]
+	},
+   {
+	   "question": "Should everyone keep track of their carbon footprint?",
+   	"options": ["Yes", "Neutral", "No", "Other"]
+	}
+]

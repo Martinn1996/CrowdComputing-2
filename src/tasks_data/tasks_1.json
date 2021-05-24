@@ -1,0 +1,8 @@
+[
+	{"question": "Could you identify what you see in the image below?",
+	"image": "/images/dog.jpeg"},
+	{"question": "Could you identify what you see in the image below?",
+	"image": "/images/boat.jpeg"},
+	{"question": "Could you identify what you see in the image below?",
+	"image": "/images/car.jpeg"}
+]

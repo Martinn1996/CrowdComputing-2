@@ -19,7 +19,8 @@ export default function Task1() {
             </Frame>)
     }
 
-    const taskSubmitted = () => {   
+    const taskSubmitted = (e) => {  
+        e.preventDefault() 
         if (answer.trim().length > 0) {
             setSubmitted(false);
             setSelected(selected + 1);
@@ -42,12 +43,12 @@ export default function Task1() {
                 <p>{tasks[selected].question}</p>
             </Col>
             <Col sm={12}>
-                <Form>
+                <Form onSubmit={taskSubmitted}>
                     <Image src={process.env.PUBLIC_URL + tasks[selected].image} style={{ maxHeight: "300px", marginBottom: "25px" }} />
                     <InputGroup size="sm" className="mb-3" hasValidation>
                         <Form.Control type="text" aria-describedby="inputGroup-sizing-sm" name="answer" value={answer} onChange={ e => setAnswer(e.target.value)} isInvalid={submitted && answer.trim().length === 0}/>
                         <InputGroup.Append>
-                            <Button onClick={taskSubmitted}>Submit</Button>
+                            <Button type="submit">Submit</Button>
                         </InputGroup.Append>
                     </InputGroup>
                 </Form>

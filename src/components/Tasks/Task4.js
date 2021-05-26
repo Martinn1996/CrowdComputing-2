@@ -26,7 +26,7 @@ export default function Task4() {
             setCode(code+1);
             setOption("");
             setSubmitted(false);
-            if (selected >= option.length) {
+            if (selected >= tasks.length - 1) {
                 setFinished(true);
             }
         } else {

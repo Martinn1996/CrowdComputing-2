@@ -40,8 +40,8 @@ export default function Task4() {
                 <h5>{tasks[selected].question}</h5>
                 <Form>
                     <Form.Group>
-                        {tasks[selected].options.map((x) => (
-                            <Form.Check label={x} name={`group${selected}`} type="radio" id={`inline-radio-${selected}`}  isInvalid={submitted && option.trim().length === 0} onChange={() => setOption(x)} checked={(x === option)}  />
+                        {tasks[selected].options.map((x, i) => (
+                            <Form.Check label={x} name={`group${i}`} type="radio" id={`inline-radio-${i}`}  isInvalid={submitted && option.trim().length === 0} onChange={() => setOption(x)} checked={(x === option)}  />
                         ))}
                     </Form.Group>
                     <Button onClick={taskSubmitted}>Submit</Button>

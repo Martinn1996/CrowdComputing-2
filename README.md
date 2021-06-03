@@ -1,7 +1,7 @@
 # CrowdComputing-2
 This repository contains the 5 interfaces for researching serendipitous user interaction when a user is waiting in a online/virtual queue.
 
-This project in completely written in React and being deployed on github pages at. The links to all 5 user interfaces are:
+This project in completely written in React and being deployed on Github Pages. The links to all 5 user interfaces are:
 
 * [https://martinn1996.github.io/CrowdComputing-2/#/task1](https://martinn1996.github.io/CrowdComputing-2/#/task1)
 * [https://martinn1996.github.io/CrowdComputing-2/#/task2](https://martinn1996.github.io/CrowdComputing-2/#/task2)

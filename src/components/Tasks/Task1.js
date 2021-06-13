@@ -39,7 +39,7 @@ export default function Task1() {
     return (
         <Frame code={code}>
             <Col sm={12}>
-                <h5>Whilst you're waiting, why not do something productive?</h5>
+                <h5>Whilst you're waiting, why not do something productive? (not required for the task)</h5>
                 <p>{tasks[selected].question}</p>
             </Col>
             <Col sm={12}>

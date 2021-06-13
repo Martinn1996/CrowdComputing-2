@@ -53,7 +53,7 @@ function Stage1({ setStage }) {
                 <Col sm={7}>
                     <ul>
                         <li>Current queue size: 5</li>
-                        <li>Estimate waiting time: 2 min</li>
+                        <li>Estimate waiting time: 1 min</li>
                         <li>Amount of TA's: 5</li>
                     </ul>
                 </Col>
@@ -71,7 +71,7 @@ function changeQueue(queueSize, setQueueSize, setStage) {
     setTimeout(() => {
         setQueueSize(queueSize - 1)
         changeQueue(queueSize - 1, setQueueSize, setStage)
-    }, 12000)
+    }, 6000)
 }
 
 function Stage2({ children, setStage }) {

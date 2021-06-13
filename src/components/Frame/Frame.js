@@ -71,7 +71,7 @@ function changeQueue(queueSize, setQueueSize, setStage) {
     setTimeout(() => {
         setQueueSize(queueSize - 1)
         changeQueue(queueSize - 1, setQueueSize, setStage)
-    }, 6000)
+    }, 3000)
 }
 
 function Stage2({ children, setStage }) {
@@ -82,7 +82,7 @@ function Stage2({ children, setStage }) {
         changeQueue(queueSize, setQueueSize, setStage)
         setTimeout(() => {
             setRenderTask(true)
-        }, 5000)
+        }, 1000)
     }, [])
 
     return <div>

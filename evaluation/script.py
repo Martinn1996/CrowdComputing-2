@@ -74,6 +74,19 @@ def generateHistograms(result):
 		ratingList = list(map(lambda x: x['experience'], result[code]))
 		histogram(ratingList, 'rating_{arg1}'.format(arg1=code), 10)
 
+def generateBoxplot(result):
+	fig = plt.figure(1, figsize=(9, 6))
+	ax = fig.add_subplot(111)
+	labels = ["Interface 1", "Interface 2", "Interface 3", "Interface 4", "Benchmark"]
+	data = []
+	for task in result:
+		experiences = list(map(lambda x: x['experience'], result[task]))
+		data.append(experiences)
+
+	
+	bp = ax.boxplot(data, showmeans=True, labels=labels)
+	fig.savefig('boxplot.png', bbox_inches='tight')
+
 def histogram(x, code, bin):
 	plt.hist(x, bins=bin)  # density=False would make counts
 	plt.ylabel('Number of occurences')
@@ -106,3 +119,4 @@ printRemarks(result)
 generateHistograms(result)
 performHypothesisTest(result)
 countInteractions(result)
+generateBoxplot(result)

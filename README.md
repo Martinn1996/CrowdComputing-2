@@ -15,3 +15,7 @@ To run this project locally execute the following two commands:
 
 `npm start`
 
+After running `npm start`, React should automatically open the website in your browser. You can click on the links to show the respective interfaces.
+
+## Evaluation script and results
+The `evaluation/` folder contains the evaluation script and the results from the project. To run the script, go to the `evaluation` folder in your terminal and run `python3 script.py`.
